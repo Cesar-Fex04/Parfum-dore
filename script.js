@@ -148,38 +148,4 @@ function cerrarSesion() {
 }
 
 
-// =====================================================
-// ========== DÍA 2: MOSTRAR PERFUMES ==========
-// =====================================================
-// Esta sección se desarrollará en el día 2
 
-function configurarPagina() {
-    const paginaActual = window.location.pathname.split('/').pop();
-    
-    // Configurar botón de cerrar sesión
-    const btnCerrarSesion = document.getElementById('btnCerrarSesion');
-    if (btnCerrarSesion) {
-        btnCerrarSesion.addEventListener('click', cerrarSesion);
-    }
-
-    // Por ahora solo mostramos un mensaje
-    console.log('Configurando página:', paginaActual);
-    
-    // DÍA 2: Aquí cargaremos los perfumes según la página
-    // if (paginaActual === 'index.html') {
-    //     mostrarCatalogo();
-    // }
-}
-
-
-// =====================================================
-// ========== DÍA 3: FAVORITOS Y FILTROS ==========
-// =====================================================
-// Esta sección se desarrollará en el día 3
-
-// Funciones que implementaremos el día 3:
-// - agregarFavorito()
-// - quitarFavorito()
-// - mostrarFavoritos()
-// - filtrarPorPopularidad()
-// - ordenarPorPrecio()
