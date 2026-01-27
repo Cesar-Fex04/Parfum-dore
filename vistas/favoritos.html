@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favoritos - Perfumería Essence</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    
+    <!-- Navegación -->
+    <nav class="navbar">
+        <h1 class="logo">Parfum doré</h1>
+        
+        <ul class="nav-links">
+            <li><a href="index.html">Catálogo</a></li>
+            <li><a href="populares.html">Populares</a></li>
+            <li><a href="favoritos.html" class="active">Favoritos</a></li>
+        </ul>
+
+        <button id="btnCerrarSesion">Cerrar Sesión</button>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <main class="main-container">
+        <header class="page-header">
+            <h2>Mis Favoritos</h2>
+            <p>Tu colección personal</p>
+        </header>
+
+        <!-- Grid de perfumes favoritos -->
+        <section id="favoritosGrid" class="perfumes-grid">
+            <!-- Los perfumes favoritos se cargarán aquí con JavaScript -->
+        </section>
+
+        <!-- Mensaje cuando no hay favoritos -->
+        <p id="mensajeVacio" class="mensaje-vacio" style="display: none;">
+            Aún no tienes favoritos. ¡Explora el catálogo y agrega tus perfumes preferidos!
+        </p>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Parfum doré</p>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

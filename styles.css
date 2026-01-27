@@ -1,0 +1,401 @@
+/* ========== VARIABLES ========== */
+:root {
+    /* Colores */
+    --dorado: #d4af37;
+    --plateado: #c0c0c0;
+    --oro-rosado: #e0a090;
+    --negro: #1a1a1a;
+    --gris-oscuro: #2d2d2d;
+    --blanco: #ffffff;
+    --gris-claro: #b8b8b8;
+
+    /* Fuentes */
+    --fuente-titulo: 'Georgia', serif;
+    --fuente-texto: 'Arial', sans-serif;
+}
+
+/* ========== RESET BÁSICO ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fuente-texto);
+    background-color: #0f0f0f;
+    color: var(--blanco);
+    line-height: 1.6;
+}
+
+/* ========== PÁGINA DE LOGIN ========== */
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+}
+
+.login-container {
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-card {
+    background: var(--negro);
+    border: 3px solid var(--dorado);
+    border-radius: 10px;
+    padding: 40px 30px;
+    box-shadow: 0 8px 30px rgba(212, 175, 55, 0.3);
+}
+
+.login-card header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.login-card h1 {
+    font-family: var(--fuente-titulo);
+    font-size: 2.5rem;
+    color: var(--dorado);
+    margin-bottom: 10px;
+}
+
+.login-card p {
+    color: var(--gris-claro);
+    font-style: italic;
+}
+
+/* Formulario de Login */
+#loginForm label {
+    display: block;
+    margin-bottom: 20px;
+}
+
+#loginForm span {
+    display: block;
+    color: var(--dorado);
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+#loginForm input {
+    width: 100%;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--dorado);
+    border-radius: 5px;
+    color: var(--blanco);
+    font-size: 1rem;
+}
+
+#loginForm input:focus {
+    outline: none;
+    border-color: var(--dorado);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+#loginForm button {
+    width: 100%;
+    padding: 15px;
+    background: var(--dorado);
+    border: none;
+    border-radius: 5px;
+    color: var(--negro);
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s;
+}
+
+#loginForm button:hover {
+    background: #c5a028;
+    transform: translateY(-2px);
+}
+
+.demo-text {
+    text-align: center;
+    margin-top: 15px;
+    color: var(--gris-claro);
+    font-size: 0.85rem;
+}
+
+.error-message {
+    background: #ff4444;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 15px;
+    text-align: center;
+}
+
+/* ========== NAVEGACIÓN ========== */
+.navbar {
+    background: var(--negro);
+    border-bottom: 2px solid var(--dorado);
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--fuente-titulo);
+    font-size: 1.8rem;
+    color: var(--dorado);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: var(--gris-claro);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    padding: 5px 0;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--dorado);
+    border-bottom-color: var(--dorado);
+}
+
+#btnCerrarSesion {
+    background: transparent;
+    border: 1px solid var(--plateado);
+    color: var(--plateado);
+    padding: 8px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    transition: all 0.3s;
+}
+
+#btnCerrarSesion:hover {
+    background: var(--plateado);
+    color: var(--negro);
+}
+
+/* ========== CONTENEDOR PRINCIPAL ========== */
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    min-height: calc(100vh - 200px);
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.page-header h2 {
+    font-family: var(--fuente-titulo);
+    font-size: 2.5rem;
+    color: var(--dorado);
+    margin-bottom: 10px;
+}
+
+.page-header p {
+    color: var(--gris-claro);
+    font-size: 1.1rem;
+    font-style: italic;
+}
+
+/* Filtro de ordenamiento */
+.filtro {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: rgba(212, 175, 55, 0.1);
+    border: 1px solid var(--dorado);
+    border-radius: 5px;
+}
+
+.filtro span {
+    color: var(--dorado);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+#selectOrden {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--dorado);
+    border-radius: 5px;
+    padding: 8px 15px;
+    color: var(--blanco);
+    cursor: pointer;
+}
+
+/* ========== GRID DE PERFUMES ========== */
+.perfumes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+/* ========== CARD DE PERFUME ========== */
+.perfume-card {
+    background: var(--negro);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+/* Bordes de colores */
+.perfume-card.borde-dorado {
+    border: 3px solid var(--dorado);
+}
+
+.perfume-card.borde-plateado {
+    border: 3px solid var(--plateado);
+}
+
+.perfume-card.borde-rosa {
+    border: 3px solid var(--oro-rosado);
+}
+
+.perfume-card:hover {
+    transform: translateY(-10px);
+}
+
+.perfume-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.perfume-info {
+    padding: 20px;
+}
+
+.perfume-marca {
+    color: var(--dorado);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.perfume-nombre {
+    font-family: var(--fuente-titulo);
+    font-size: 1.5rem;
+    color: var(--blanco);
+    margin-bottom: 10px;
+}
+
+.perfume-descripcion {
+    color: var(--gris-claro);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.perfume-detalles {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    border-top: 1px solid var(--gris-oscuro);
+}
+
+.perfume-precio {
+    font-family: var(--fuente-titulo);
+    font-size: 1.3rem;
+    color: var(--dorado);
+    font-weight: bold;
+}
+
+.perfume-popularidad {
+    color: var(--gris-claro);
+    font-size: 0.9rem;
+}
+
+/* Botón de favorito */
+.btn-favorito {
+    width: 100%;
+    margin-top: 15px;
+    padding: 10px;
+    background: transparent;
+    border: 2px solid var(--dorado);
+    border-radius: 5px;
+    color: var(--dorado);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-favorito:hover {
+    background: var(--dorado);
+    color: var(--negro);
+}
+
+.btn-favorito.activo {
+    background: var(--dorado);
+    color: var(--negro);
+}
+
+/* ========== MENSAJE VACÍO ========== */
+.mensaje-vacio {
+    text-align: center;
+    color: var(--gris-claro);
+    font-size: 1.1rem;
+    font-style: italic;
+    padding: 60px 20px;
+}
+
+/* ========== FOOTER ========== */
+footer {
+    background: var(--negro);
+    border-top: 2px solid var(--dorado);
+    padding: 20px;
+    text-align: center;
+    color: var(--gris-claro);
+    margin-top: 60px;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .perfumes-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 20px;
+    }
+
+    .page-header h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .perfumes-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .login-card h1 {
+        font-size: 2rem;
+    }
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Perfumería Essence</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="login-page">
+    
+    <main class="login-container">
+        <article class="login-card">
+            <header>
+                <h1>Essence Boutique</h1>
+                <p>Perfumería de Lujo</p>
+            </header>
+
+            <form id="loginForm">
+                <label>
+                    <span>Email</span>
+                    <input type="email" id="emailInput" required>
+                </label>
+
+                <label>
+                    <span>Contraseña</span>
+                    <input type="password" id="passwordInput" required>
+                </label>
+
+                <button type="submit">Entrar</button>
+
+                <p class="demo-text">
+                    <small>Usuario demo: demo@perfumeria.com / demo123</small>
+                </p>
+
+                <p id="errorMessage" class="error-message" style="display: none;"></p>
+            </form>
+        </article>
+    </main>
+
+    <script src="../script.js"></script>
+</body>
+</html>

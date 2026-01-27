@@ -1,0 +1,18 @@
+{
+  "usuarios": [
+    {
+      "id": 1,
+      "email": "demo@perfumeria.com",
+      "password": "demo123",
+      "nombre": "Usuario Demo",
+      "favoritos": []
+    },
+    {
+      "id": 2,
+      "email": "cliente@email.com",
+      "password": "cliente123",
+      "nombre": "María González",
+      "favoritos": []
+    }
+  ]
+}

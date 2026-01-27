@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Populares - Perfumería Essence</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    
+    <!-- Navegación -->
+    <nav class="navbar">
+        <h1 class="logo">Parfum doré</h1>
+        
+        <ul class="nav-links">
+            <li><a href="index.html">Catálogo</a></li>
+            <li><a href="populares.html" class="active">Populares</a></li>
+            <li><a href="favoritos.html">Favoritos</a></li>
+        </ul>
+
+        <button id="btnCerrarSesion">Cerrar Sesión</button>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <main class="main-container">
+        <header class="page-header">
+            <h2>Más Populares</h2>
+            <p>Nuestras fragancias más deseadas</p>
+
+            <!-- Filtro de ordenamiento -->
+            <label class="filtro">
+                <span>Ordenar por:</span>
+                <select id="selectOrden">
+                    <option value="popularidad-desc">Mayor popularidad</option>
+                    <option value="popularidad-asc">Menor popularidad</option>
+                    <option value="precio-asc">Precio: Menor a Mayor</option>
+                    <option value="precio-desc">Precio: Mayor a Menor</option>
+                </select>
+            </label>
+        </header>
+
+        <!-- Grid de perfumes populares -->
+        <section id="popularesGrid" class="perfumes-grid">
+            <!-- Los perfumes se cargarán aquí con JavaScript -->
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Essence Boutique</p>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>
