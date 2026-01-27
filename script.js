@@ -1,18 +1,8 @@
-// =====================================================
-// PERFUMERÍA ESSENCE - JAVASCRIPT
-// =====================================================
-// Este archivo está dividido en 3 secciones:
-// DÍA 1: Login y autenticación
-// DÍA 2: Mostrar perfumes en catálogo
-// DÍA 3: Favoritos y filtros
-// =====================================================
 
-// ========== VARIABLES GLOBALES ==========
 let perfumes = [];
 let usuarios = [];
 let usuarioActual = null;
 
-// ========== INICIALIZACIÓN ==========
 // Esta función se ejecuta cuando carga la página
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Página cargada');
@@ -20,7 +10,6 @@ document.addEventListener('DOMContentLoaded', function() {
     iniciarAplicacion();
 });
 
-// ========== CARGAR DATOS DESDE JSON ==========
 function cargarDatos() {
     // Cargar perfumes desde el JSON
     fetch('bd/perfume.json')
@@ -45,7 +34,6 @@ function cargarDatos() {
         });
 }
 
-// ========== DETECTAR EN QUÉ PÁGINA ESTAMOS ==========
 function iniciarAplicacion() {
     // Obtener el nombre del archivo actual
     const paginaActual = window.location.pathname.split('/').pop();
@@ -63,10 +51,6 @@ function iniciarAplicacion() {
     }
 }
 
-
-// =====================================================
-// ========== DÍA 1: SISTEMA DE LOGIN ==========
-// =====================================================
 
 // Configurar la página de login
 function configurarLogin() {
