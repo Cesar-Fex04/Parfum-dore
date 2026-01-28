@@ -1,20 +1,25 @@
-/* ========== VARIABLES ========== */
+
 :root {
-    /* Colores */
-    --dorado: #d4af37;
-    --plateado: #c0c0c0;
-    --oro-rosado: #e0a090;
-    --negro: #1a1a1a;
-    --gris-oscuro: #2d2d2d;
-    --blanco: #ffffff;
-    --gris-claro: #b8b8b8;
+    /* Paleta Parfum Doré */
+    --rosa-suave: #f5d5d8;
+    --rosa-claro: #fce8ea;
+    --crema: #fef8f0;
+    --dorado: #d4a574;
+    --dorado-oscuro: #b8935f;
+    --texto-dorado: #a67c52;
+    --blanco-roto: #fefdfb;
+    
+    /* Textos */
+    --texto-principal: #5a4a42;
+    --texto-secundario: #8b7b73;
+    --texto-claro: #c4b5ae;
 
     /* Fuentes */
     --fuente-titulo: 'Georgia', serif;
     --fuente-texto: 'Arial', sans-serif;
 }
 
-/* ========== RESET BÁSICO ========== */
+/* Reset básico */
 * {
     margin: 0;
     padding: 0;
@@ -23,146 +28,165 @@
 
 body {
     font-family: var(--fuente-texto);
-    background-color: #0f0f0f;
-    color: var(--blanco);
+    background-color: var(--crema);
+    color: var(--texto-principal);
     line-height: 1.6;
 }
 
-/* ========== PÁGINA DE LOGIN ========== */
+/* Login */
 .login-page {
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+    background: linear-gradient(135deg, var(--crema) 0%, var(--rosa-claro) 100%);
 }
 
 .login-container {
     padding: 20px;
     width: 100%;
-    max-width: 400px;
+    max-width: 420px;
 }
 
 .login-card {
-    background: var(--negro);
+    background: var(--blanco-roto);
     border: 3px solid var(--dorado);
-    border-radius: 10px;
-    padding: 40px 30px;
-    box-shadow: 0 8px 30px rgba(212, 175, 55, 0.3);
+    border-radius: 12px;
+    padding: 50px 40px;
+    box-shadow: 0 10px 40px rgba(212, 165, 116, 0.2);
 }
 
 .login-card header {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
 }
 
 .login-card h1 {
     font-family: var(--fuente-titulo);
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     color: var(--dorado);
-    margin-bottom: 10px;
+    margin-bottom: 8px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
 }
 
 .login-card p {
-    color: var(--gris-claro);
+    color: var(--texto-secundario);
     font-style: italic;
+    font-size: 1.05rem;
 }
 
 /* Formulario de Login */
 #loginForm label {
     display: block;
-    margin-bottom: 20px;
+    margin-bottom: 22px;
 }
 
 #loginForm span {
     display: block;
-    color: var(--dorado);
-    font-size: 0.9rem;
-    margin-bottom: 5px;
+    color: var(--texto-dorado);
+    font-size: 0.88rem;
+    margin-bottom: 6px;
     text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 500;
 }
 
 #loginForm input {
     width: 100%;
-    padding: 12px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--dorado);
-    border-radius: 5px;
-    color: var(--blanco);
+    padding: 14px 16px;
+    background: var(--rosa-claro);
+    border: 2px solid var(--rosa-suave);
+    border-radius: 8px;
+    color: var(--texto-principal);
     font-size: 1rem;
+    transition: all 0.3s;
 }
 
 #loginForm input:focus {
     outline: none;
     border-color: var(--dorado);
-    box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+    background: var(--blanco-roto);
+    box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.1);
 }
 
 #loginForm button {
     width: 100%;
-    padding: 15px;
-    background: var(--dorado);
+    padding: 16px;
+    background: linear-gradient(135deg, var(--dorado) 0%, var(--dorado-oscuro) 100%);
     border: none;
-    border-radius: 5px;
-    color: var(--negro);
-    font-size: 1rem;
-    font-weight: bold;
+    border-radius: 8px;
+    color: var(--blanco-roto);
+    font-size: 1.05rem;
+    font-weight: 600;
     cursor: pointer;
     text-transform: uppercase;
+    letter-spacing: 0.1em;
     transition: all 0.3s;
+    margin-top: 10px;
 }
 
 #loginForm button:hover {
-    background: #c5a028;
     transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(212, 165, 116, 0.4);
+}
+
+#loginForm button:active {
+    transform: translateY(0);
 }
 
 .demo-text {
     text-align: center;
-    margin-top: 15px;
-    color: var(--gris-claro);
+    margin-top: 18px;
+    color: var(--texto-claro);
     font-size: 0.85rem;
 }
 
 .error-message {
-    background: #ff4444;
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
+    background: #f8d7da;
+    color: #721c24;
+    padding: 12px;
+    border-radius: 6px;
     margin-top: 15px;
     text-align: center;
+    border: 1px solid #f5c6cb;
 }
 
-/* ========== NAVEGACIÓN ========== */
+/* Navegacion */
 .navbar {
-    background: var(--negro);
+    background: var(--blanco-roto);
     border-bottom: 2px solid var(--dorado);
-    padding: 20px 40px;
+    padding: 22px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 0 2px 12px rgba(212, 165, 116, 0.08);
 }
 
 .logo {
     font-family: var(--fuente-titulo);
-    font-size: 1.8rem;
+    font-size: 2rem;
     color: var(--dorado);
+    font-weight: 400;
+    letter-spacing: 0.05em;
 }
 
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 30px;
+    gap: 35px;
 }
 
 .nav-links a {
-    color: var(--gris-claro);
+    color: var(--texto-secundario);
     text-decoration: none;
     text-transform: uppercase;
-    font-size: 0.9rem;
-    padding: 5px 0;
+    font-size: 0.88rem;
+    padding: 8px 0;
     border-bottom: 2px solid transparent;
     transition: all 0.3s;
+    letter-spacing: 0.08em;
+    font-weight: 500;
 }
 
 .nav-links a:hover,
@@ -173,87 +197,297 @@ body {
 
 #btnCerrarSesion {
     background: transparent;
-    border: 1px solid var(--plateado);
-    color: var(--plateado);
-    padding: 8px 20px;
-    border-radius: 5px;
+    border: 2px solid var(--dorado);
+    color: var(--dorado);
+    padding: 10px 24px;
+    border-radius: 8px;
     cursor: pointer;
     text-transform: uppercase;
     font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    font-weight: 500;
     transition: all 0.3s;
 }
 
 #btnCerrarSesion:hover {
-    background: var(--plateado);
-    color: var(--negro);
+    background: var(--dorado);
+    color: var(--blanco-roto);
+    transform: translateY(-2px);
 }
 
-/* ========== CONTENEDOR PRINCIPAL ========== */
+/* Contenedor principal */
 .main-container {
-    max-width: 1200px;
+    max-width: 1300px;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 50px 30px;
     min-height: calc(100vh - 200px);
 }
 
 .page-header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
 }
 
 .page-header h2 {
     font-family: var(--fuente-titulo);
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     color: var(--dorado);
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    font-weight: 400;
+    letter-spacing: 0.03em;
 }
 
 .page-header p {
-    color: var(--gris-claro);
-    font-size: 1.1rem;
+    color: var(--texto-secundario);
+    font-size: 1.15rem;
     font-style: italic;
 }
 
-/* ========== MENSAJE VACÍO ========== */
+/* Filtro de ordenamiento */
+.filtro {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 24px;
+    padding: 12px 24px;
+    background: var(--rosa-claro);
+    border: 2px solid var(--rosa-suave);
+    border-radius: 8px;
+}
+
+.filtro span {
+    color: var(--texto-dorado);
+    font-size: 0.88rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 500;
+}
+
+#selectOrden {
+    background: var(--blanco-roto);
+    border: 2px solid var(--rosa-suave);
+    border-radius: 6px;
+    padding: 8px 16px;
+    color: var(--texto-principal);
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+#selectOrden:focus {
+    outline: none;
+    border-color: var(--dorado);
+}
+
+/* Grid de perfumes */
+.perfumes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 35px;
+}
+
+/* Card de perfume */
+.perfume-card {
+    background: var(--blanco-roto);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(212, 165, 116, 0.12);
+    /* TODAS LAS CARDS CON BORDE DORADO */
+    border: 3px solid var(--dorado);
+}
+
+.perfume-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 12px 35px rgba(212, 165, 116, 0.25);
+}
+
+.perfume-img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.perfume-card:hover .perfume-img {
+    transform: scale(1.08);
+}
+
+.perfume-info {
+    padding: 24px;
+    background: linear-gradient(to bottom, var(--blanco-roto) 0%, var(--rosa-claro) 100%);
+}
+
+.perfume-marca {
+    color: var(--texto-dorado);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+}
+
+.perfume-nombre {
+    font-family: var(--fuente-titulo);
+    font-size: 1.65rem;
+    color: var(--texto-principal);
+    margin-bottom: 10px;
+    font-weight: 400;
+    line-height: 1.3;
+}
+
+.perfume-descripcion {
+    color: var(--texto-secundario);
+    font-size: 0.92rem;
+    margin-bottom: 18px;
+    line-height: 1.5;
+}
+
+.perfume-detalles {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 16px;
+    border-top: 1px solid var(--rosa-suave);
+    margin-bottom: 16px;
+}
+
+.perfume-precio {
+    font-family: var(--fuente-titulo);
+    font-size: 1.5rem;
+    color: var(--dorado-oscuro);
+    font-weight: 600;
+}
+
+.perfume-popularidad {
+    color: var(--texto-secundario);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Botón de favorito */
+.btn-favorito {
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    border: 2px solid var(--dorado);
+    border-radius: 8px;
+    color: var(--dorado);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-favorito:hover {
+    background: var(--dorado);
+    color: var(--blanco-roto);
+    transform: translateY(-2px);
+}
+
+.btn-favorito.activo {
+    background: var(--dorado);
+    color: var(--blanco-roto);
+    border-color: var(--dorado-oscuro);
+}
+
+/* Mensaje vacío */
 .mensaje-vacio {
     text-align: center;
-    color: var(--gris-claro);
-    font-size: 1.1rem;
+    color: var(--texto-secundario);
+    font-size: 1.15rem;
     font-style: italic;
-    padding: 60px 20px;
+    padding: 80px 30px;
+    background: var(--rosa-claro);
+    border-radius: 12px;
+    border: 2px solid var(--rosa-suave);
 }
 
-/* ========== FOOTER ========== */
+/* Footer */
 footer {
-    background: var(--negro);
+    background: var(--blanco-roto);
     border-top: 2px solid var(--dorado);
-    padding: 20px;
+    padding: 24px;
     text-align: center;
-    color: var(--gris-claro);
+    color: var(--texto-secundario);
     margin-top: 60px;
+    font-size: 0.95rem;
 }
 
-/* ========== RESPONSIVE ========== */
+/* Notificación */
+.notificacion {
+    position: fixed;
+    top: 100px;
+    right: 30px;
+    background: linear-gradient(135deg, var(--dorado) 0%, var(--dorado-oscuro) 100%);
+    color: var(--blanco-roto);
+    padding: 16px 28px;
+    border-radius: 10px;
+    font-weight: 500;
+    box-shadow: 0 6px 25px rgba(212, 165, 116, 0.4);
+    z-index: 1000;
+    animation: slideInRight 0.4s ease-out;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+/* Responsive */
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
-        gap: 15px;
+        gap: 18px;
         padding: 20px;
     }
 
     .nav-links {
         flex-direction: column;
         text-align: center;
-        gap: 10px;
+        gap: 12px;
+        width: 100%;
     }
 
     .perfumes-grid {
-        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-        gap: 20px;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 25px;
     }
 
     .page-header h2 {
-        font-size: 2rem;
+        font-size: 2.2rem;
+    }
+
+    .login-card {
+        padding: 35px 28px;
+    }
+
+    .login-card h1 {
+        font-size: 2.2rem;
+    }
+
+    .main-container {
+        padding: 35px 20px;
     }
 }
 
@@ -262,7 +496,15 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    .login-card h1 {
-        font-size: 2rem;
+    .logo {
+        font-size: 1.6rem;
+    }
+
+    .nav-links a {
+        font-size: 0.85rem;
+    }
+
+    .page-header h2 {
+        font-size: 1.9rem;
     }
 }
