@@ -1,38 +1,41 @@
-// Variables globales
+//  variables globales
 let perfumes = [];
 let usuarios = [];
 let usuarioActual = null;
 
-// Inicialización de la app
+// Detectamos si estamos dentro de la carpeta 'vistas' para ajustar rutas relativas
+const esVistas = window.location.pathname.includes('/vistas/');
+
+// iniciar la aplicación cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', () => {
     cargarDatos();
     iniciarAplicacion();
 });
 
-// Carga de datos JSON (Perfumes y Usuarios)
+// cargar datos desde los archivos JSON
 function cargarDatos() {
-    const pagina = window.location.pathname.split('/').pop();
-    const rutaBase = (pagina === 'login.html' || pagina === '') ? 'bd/' : '../bd/';
+    
+    const rutaBase = esVistas ? '../bd/' : 'bd/';
 
     fetch(rutaBase + 'perfume.json')
         .then(res => res.ok ? res.json() : Promise.reject())
         .then(data => {
             perfumes = data.perfumes;
-            mostrarPerfumesSegunPagina();
+            if (esVistas) mostrarPerfumesSegunPagina();
         })
-        .catch(() => alert('Error cargando perfumes.'));
+        .catch(() => console.log('Esperando carga de perfumes o error en ruta...'));
 
     fetch(rutaBase + 'usuarios.json')
         .then(res => res.ok ? res.json() : Promise.reject())
         .then(data => usuarios = data.usuarios)
-        .catch(() => {}); // Fallo silencioso en usuarios
+        .catch(() => console.log('Cargando usuarios...'));
 }
 
-// Router básico: Login o contenido protegido
+// navegacion
 function iniciarAplicacion() {
     const pagina = window.location.pathname.split('/').pop();
 
-    if (pagina === 'login.html' || pagina === '') {
+    if (!esVistas) {
         configurarLogin();
     } else {
         verificarSesion();
@@ -40,8 +43,14 @@ function iniciarAplicacion() {
     }
 }
 
-// Configuración del formulario de Login
+//Login
 function configurarLogin() {
+    // Si el usuario ya tiene sesión, lo mandamos directo adentro
+    if (localStorage.getItem('usuarioActual')) {
+        window.location.href = 'vistas/home.html';
+        return;
+    }
+
     const form = document.getElementById('loginForm');
     if (form) {
         form.addEventListener('submit', (e) => {
@@ -53,13 +62,12 @@ function configurarLogin() {
     }
 }
 
-// Autenticación
 function hacerLogin(email, password) {
     const usuario = usuarios.find(u => u.email === email && u.password === password);
 
     if (usuario) {
         localStorage.setItem('usuarioActual', JSON.stringify(usuario));
-        window.location.href = 'vistas/index.html';
+        window.location.href = 'vistas/home.html';
     } else {
         const msg = document.getElementById('errorMessage');
         if (msg) {
@@ -69,23 +77,24 @@ function hacerLogin(email, password) {
     }
 }
 
-// Verificación de sesión activa
+// Sesion
 function verificarSesion() {
     const guardado = localStorage.getItem('usuarioActual');
     if (guardado) {
         usuarioActual = JSON.parse(guardado);
     } else {
-        window.location.href = '../login.html';
+        // Si no hay sesión, sacar al usuario a la raíz (../index.html)
+        window.location.href = '../index.html';
     }
 }
 
-// Cerrar sesión
 function cerrarSesion() {
     localStorage.removeItem('usuarioActual');
-    window.location.href = '../login.html';
+    // Redirigir al Login en la raíz
+    window.location.href = '../index.html';
 }
 
-// Configuración de eventos por página
+// configurar vistas
 function configurarPagina(pagina) {
     const btnSalir = document.getElementById('btnCerrarSesion');
     if (btnSalir) btnSalir.addEventListener('click', cerrarSesion);
@@ -96,21 +105,20 @@ function configurarPagina(pagina) {
     }
 }
 
-// Renderizado condicional según la vista
+// Renderizar productos segun la pagina
 function mostrarPerfumesSegunPagina() {
     const pagina = window.location.pathname.split('/').pop();
     
-    if (pagina === 'index.html') mostrarCatalogo();
+    
+    if (pagina === 'home.html') mostrarCatalogo();
     else if (pagina === 'populares.html') mostrarPopulares();
     else if (pagina === 'favoritos.html') mostrarFavoritos();
 }
 
-// Mostrar todo el catálogo
 function mostrarCatalogo() {
     renderizarGrid('catalogoGrid', perfumes);
 }
 
-// Mostrar y ordenar populares
 function mostrarPopulares() {
     const select = document.getElementById('selectOrden');
     const criterio = select ? select.value : 'popularidad-desc';
@@ -124,7 +132,6 @@ function mostrarPopulares() {
     renderizarGrid('popularesGrid', ordenados);
 }
 
-// Mostrar solo favoritos
 function mostrarFavoritos() {
     const favoritosIds = obtenerFavoritosIds();
     const listaFavoritos = perfumes.filter(p => favoritosIds.includes(p.id));
@@ -135,7 +142,7 @@ function mostrarFavoritos() {
     if (msgVacio) msgVacio.style.display = listaFavoritos.length === 0 ? 'block' : 'none';
 }
 
-// Función genérica para renderizar tarjetas
+//Productos en Cards   
 function renderizarGrid(idGrid, listaPerfumes) {
     const grid = document.getElementById(idGrid);
     if (!grid) return;
@@ -144,12 +151,11 @@ function renderizarGrid(idGrid, listaPerfumes) {
     listaPerfumes.forEach(p => grid.appendChild(crearCard(p)));
 }
 
-// Creación de tarjeta HTML individual
 function crearCard(perfume) {
     const article = document.createElement('article');
     article.className = 'perfume-card';
     const esFav = esFavorito(perfume.id);
-
+    
     article.innerHTML = `
         <img src="${perfume.imagen}" alt="${perfume.nombre}" class="perfume-img">
         <div class="perfume-info">
@@ -170,8 +176,7 @@ function crearCard(perfume) {
     return article;
 }
 
-// Gestión de Favoritos
-
+// Gestion de Favoritos
 function obtenerFavoritosIds() {
     if (!usuarioActual) return [];
     const data = localStorage.getItem('favoritos_usuario_' + usuarioActual.id);
@@ -199,10 +204,12 @@ function toggleFavorito(id) {
 
     localStorage.setItem('favoritos_usuario_' + usuarioActual.id, JSON.stringify(favoritos));
     mostrarNotificacion(mensaje);
-    mostrarPerfumesSegunPagina(); // Recarga la vista para actualizar iconos
+    
+    // Recargamos la vista para actualizar los corazones
+    mostrarPerfumesSegunPagina(); 
 }
 
-// Notificación flotante
+// Notificaciones
 function mostrarNotificacion(texto) {
     const notif = document.createElement('div');
     notif.className = 'notificacion';
